@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * mail: lipingxin@outlook.com
  * time: 2018-03-16 22:20.
  */
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
     private static final int TIME = 300;

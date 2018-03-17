@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>${weatherData.title}</title>
+</head>
+<body>
+    <h3 th:text="${weatherData.title}"></h3>
+    <select>
+        <option th:each="cityInfo : ${weatherData.cityList}"
+                th:value="${cityInfo.id}"
+                th:text="${cityInfo.location}"
+                th:selected="${cityInfo.location eq weatherData.city or cityInfo.id eq weatherData.city}"/>
+    </select>
+
+    <h1 th:text="${weatherData.current.city.location}">城市名称</h1>
+    <div>
+        <p><b>实况天气</b></p>
+        <p>
+            更新时间：<span th:text="${weatherData.current.updateTime}">--</span>
+        </p>
+        <p>
+            气温(℃)：<span th:text="${weatherData.current.forecasts[0].tmp}">--</span>
+        </p>
+        <p>
+            体感温度(℃)：<span th:text="${weatherData.current.forecasts[0].fl}">--</span>
+        </p>
+        <p>
+            云量：<span th:text="${weatherData.current.forecasts[0].cloud}">--</span>
+        </p>
+        <p>
+            能见度(公里)：<span th:text="${weatherData.current.forecasts[0].vis}">--</span>
+        </p>
+        <p>
+            风力：<span th:text="${weatherData.current.forecasts[0].windSc}">--</span>
+        </p>
+        <p>
+            风向：<span th:text="${weatherData.current.forecasts[0].windDir}">--</span>
+        </p>
+        <p>
+            相对湿度：<span th:text="${weatherData.current.forecasts[0].hum}">--</span>
+        </p>
+        <p>
+            大气压强：<span th:text="${weatherData.current.forecasts[0].pres}">--</span>
+        </p>
+        <p>
+            降水量：<span th:text="${weatherData.current.forecasts[0].pcpn}">--</span>
+        </p>
+    </div>
+
+    <p><b>未来三天的天气</b></p>
+    <p>
+        更新时间：<span th:text="${weatherData.future.updateTime}">--</span>
+    </p>
+    <div th:each="forecast : ${weatherData.future.forecasts}">
+        <div>
+            <p>
+                日期：<span th:text="${forecast.date}">--</span>
+            </p>
+            <p>
+                温度(℃)：<span th:text="${forecast.tmpMin} + ' ~ ' + ${forecast.tmpMax}">--</span>
+            </p>
+            <p>
+                能见度(公里)：<span th:text="${forecast.vis}">--</span>
+            </p>
+            <p>
+                风力：<span th:text="${forecast.windSc}">--</span>
+            </p>
+            <p>
+                风向：<span th:text="${forecast.windDir}">--</span>
+            </p>
+            <p>
+                相对湿度：<span th:text="${forecast.hum}">--</span>
+            </p>
+            <p>
+                大气压强：<span th:text="${forecast.pres}">--</span>
+            </p>
+            <p>
+                降水量：<span th:text="${forecast.pcpn}">--</span>
+            </p>
+            <p>
+                紫外线强度指数：<span th:text="${forecast.uvIndex}">--</span>
+            </p>
+            <p>
+                日出时间：<span th:text="${forecast.sr}">--</span>
+            </p>
+            <p>
+                日落时间：<span th:text="${forecast.ss}">--</span>
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>
