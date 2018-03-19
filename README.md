@@ -10,3 +10,7 @@
 - Redis(Lettuce)
 - quartz
 - ......
+
+# 子项目说明
+- weather-traditional-implementation 传统实现方式
+- weather-data-collection 天气数据采集模块
