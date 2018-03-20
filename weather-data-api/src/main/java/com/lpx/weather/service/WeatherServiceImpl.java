@@ -19,7 +19,6 @@ public class WeatherServiceImpl implements IWeatherService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WeatherServiceImpl.class);
 
-    private static final String BASE_URL = "https://free-api.heweather.com/s6/";
     private static final String FUTURE_WEATHER_REDIS_KEY = "future-weather-";
     private static final String CURRENT_WEATHER_REDIS_KEY = "current-weather-";
 
@@ -32,8 +31,9 @@ public class WeatherServiceImpl implements IWeatherService {
         // 从缓存中查询天气数据
         String key = FUTURE_WEATHER_REDIS_KEY + city;
         Weather weather = queryFromRedis(key);
-        if (weather != null) {
-            return weather;
+        if (weather == null) {
+            LOGGER.error("缓存中没有未来天气数据");
+            throw new RuntimeException("There's no data in cache");
         }
 
         return null;
@@ -45,8 +45,9 @@ public class WeatherServiceImpl implements IWeatherService {
         // 从缓存中查询天气数据
         String key = CURRENT_WEATHER_REDIS_KEY + city;
         Weather weather = queryFromRedis(key);
-        if (weather != null) {
-            return weather;
+        if (weather == null) {
+            LOGGER.error("缓存中没有实况天气数据");
+            throw new RuntimeException("There's no data in cache");
         }
 
         return weather;
