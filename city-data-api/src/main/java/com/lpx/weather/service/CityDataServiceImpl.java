@@ -9,10 +9,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +36,9 @@ public class CityDataServiceImpl implements ICityDataService {
         Object dataInCache = valueOperations.get(CITY_DATA_KEY);
         if (dataInCache == null) {
             // 解析文件，并将城市信息放入redis
-            String fileName = CityDataServiceImpl.class.getClassLoader().getResource("china-city-list.txt").getPath();
+//            String fileName = CityDataServiceImpl.class.getClassLoader().getResource("china-city-list.txt").getPath();
+            // 在IDEA中运行时，上面的代码是没问题的，但是打包成jar后，无法读取文件，所以写死路径
+            String fileName = "D://china-city-list.txt";
             LOGGER.info("############## 文件路径为 " + fileName);
             cityList = readFileByLines(fileName);
             if (!CollectionUtils.isEmpty(cityList)) {
@@ -64,7 +63,9 @@ public class CityDataServiceImpl implements ICityDataService {
         File file = new File(fileName);
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(file));
+            // 注意可能发生的乱码问题。注意文件编码
+//            reader = new BufferedReader(new FileReader(file));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName),"UTF-8"));
             String tempString = null;
             // 一次读入一行，直到读入null为文件结束
             List<City> cityList = new ArrayList<>();
