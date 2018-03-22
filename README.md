@@ -6,11 +6,11 @@
 跟老师的代码不完全一样，差别还是挺多的。
 
 2. **主要技术**
-  - SpringBoot 2.0 RELEASE
-  - SpringCloud Finchley.M8
-  - Redis(Lettuce)
-  - quartz
-  - ......
+  - SpringBoot 2.0 RELEASE 
+  - SpringCloud Finchley.M8 
+  - Redis(Lettuce) 
+  - quartz 
+  - ...... 
 
 3. **子项目说明**
 
