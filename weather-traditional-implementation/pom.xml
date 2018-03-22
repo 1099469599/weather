@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lpx</groupId>
-    <artifactId>weather</artifactId>
+    <artifactId>weather-traditional-implementation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>weather</name>
+    <name>weather-traditional-implementation</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
