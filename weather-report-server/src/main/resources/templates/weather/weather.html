@@ -22,13 +22,11 @@
             </option>
         </select>
     </div>
-</div>
 
-<div class="row">
-    <h1 class="text-success" th:text="${weatherData.current.city.location}">城市名称</h1>
-</div>
+    <div class="row">
+        <h1 class="text-success" th:text="${weatherData.current.city.location}">城市名称</h1>
+    </div>
 
-<div>
     <div class="row">
         <p><b>实况天气</b></p>
         <p>
@@ -65,57 +63,56 @@
             </div>
         </div>
     </div>
-</div>
 
-<br/>
+    <br/>
 
-<div class="row">
-    <p><b>未来天气</b></p>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;更新时间：<span th:text="${weatherData.future.updateTime}">--</span>
-    </p>
-</div>
+    <div class="row">
+        <p><b>未来天气</b></p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;更新时间：<span th:text="${weatherData.future.updateTime}">--</span>
+        </p>
+    </div>
 
-<div class="row">
-    <div class="card border-info" th:each="forecast : ${weatherData.future.forecasts}">
-        <div class="card-body text-info">
-            <p class="card-text">
-                <b><span th:text="${forecast.date}">--</span></b>
-            </p>
-            <p class="card-text">
-                温度(℃)：<span th:text="${forecast.tmpMin} + ' ~ ' + ${forecast.tmpMax}">--</span>
-            </p>
-            <p class="card-text">
-                能见度(公里)：<span th:text="${forecast.vis}">--</span>
-            </p>
-            <p class="card-text">
-                风力：<span th:text="${forecast.windSc}">--</span>
-            </p>
-            <p class="card-text">
-                风向：<span th:text="${forecast.windDir}">--</span>
-            </p>
-            <p class="card-text">
-                相对湿度：<span th:text="${forecast.hum}">--</span>
-            </p>
-            <p class="card-text">
-                大气压强：<span th:text="${forecast.pres}">--</span>
-            </p>
-            <p class="card-text">
-                降水量：<span th:text="${forecast.pcpn}">--</span>
-            </p>
-            <p class="card-text">
-                紫外线强度指数：<span th:text="${forecast.uvIndex}">--</span>
-            </p>
-            <p class="card-text">
-                日出时间：<span th:text="${forecast.sr}">--</span>
-            </p>
-            <p class="card-text">
-                日落时间：<span th:text="${forecast.ss}">--</span>
-            </p>
+    <div class="row">
+        <div class="card border-info" th:each="forecast : ${weatherData.future.forecasts}">
+            <div class="card-body text-info">
+                <p class="card-text">
+                    <b><span th:text="${forecast.date}">--</span></b>
+                </p>
+                <p class="card-text">
+                    温度(℃)：<span th:text="${forecast.tmpMin} + ' ~ ' + ${forecast.tmpMax}">--</span>
+                </p>
+                <p class="card-text">
+                    能见度(公里)：<span th:text="${forecast.vis}">--</span>
+                </p>
+                <p class="card-text">
+                    风力：<span th:text="${forecast.windSc}">--</span>
+                </p>
+                <p class="card-text">
+                    风向：<span th:text="${forecast.windDir}">--</span>
+                </p>
+                <p class="card-text">
+                    相对湿度：<span th:text="${forecast.hum}">--</span>
+                </p>
+                <p class="card-text">
+                    大气压强：<span th:text="${forecast.pres}">--</span>
+                </p>
+                <p class="card-text">
+                    降水量：<span th:text="${forecast.pcpn}">--</span>
+                </p>
+                <p class="card-text">
+                    紫外线强度指数：<span th:text="${forecast.uvIndex}">--</span>
+                </p>
+                <p class="card-text">
+                    日出时间：<span th:text="${forecast.sr}">--</span>
+                </p>
+                <p class="card-text">
+                    日落时间：<span th:text="${forecast.ss}">--</span>
+                </p>
+            </div>
         </div>
     </div>
 </div>
-
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

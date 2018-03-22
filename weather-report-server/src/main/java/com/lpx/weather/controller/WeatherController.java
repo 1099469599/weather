@@ -1,5 +1,6 @@
 package com.lpx.weather.controller;
 
+import com.lpx.weather.service.ICityClient;
 import com.lpx.weather.service.IWeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -22,14 +23,16 @@ public class WeatherController {
 
     @Autowired
     private IWeatherService weatherService;
+    @Autowired
+    private ICityClient cityClient;
 
     //查询天气（未来+即时）
     @GetMapping("{city}")
     public ModelAndView getWeatherReport(@PathVariable String city, Model model) {
         model.addAttribute("title", "天气预报");
         model.addAttribute("city", city);
-        // TODO 调用城市数据微服务获取数据
-//        model.addAttribute("cityList", cityDataService.getCityList());
+        // 调用城市数据微服务获取数据
+        model.addAttribute("cityList", cityClient.getCityList());
         model.addAttribute("future", weatherService.getFutureWeather(city));
         model.addAttribute("current", weatherService.getCurrentWeather(city));
         return new ModelAndView("weather/weather", "weatherData", model);

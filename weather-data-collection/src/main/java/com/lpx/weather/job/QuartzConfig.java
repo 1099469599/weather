@@ -2,6 +2,7 @@ package com.lpx.weather.job;
 
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * description:
@@ -9,10 +10,10 @@ import org.springframework.context.annotation.Bean;
  * mail: lipingxin@outlook.com
  * time: 2018-03-16 22:20.
  */
-//@Configuration
+@Configuration
 public class QuartzConfig {
 
-    private static final int TIME = 300;
+    private static final int TIME = 1800;
 
     @Bean
     public JobDetail weatherDataSyncJobDetail() {

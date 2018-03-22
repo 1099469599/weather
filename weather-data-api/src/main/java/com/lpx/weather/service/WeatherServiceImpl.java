@@ -36,7 +36,7 @@ public class WeatherServiceImpl implements IWeatherService {
             throw new RuntimeException("There's no data in cache");
         }
 
-        return null;
+        return weather;
     }
 
     @Override
