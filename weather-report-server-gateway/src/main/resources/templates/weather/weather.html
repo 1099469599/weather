@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title th:text="${weatherData.title} + '-' + ${weatherData.city}"></title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h3 th:text="${weatherData.title}"></h3>
+        <select class="custom-select" id="citySelect" title="城市">
+            <option th:each="cityInfo : ${weatherData.cityList}"
+                    th:value="${cityInfo.location}"
+                    th:text="${cityInfo.location}"
+                    th:selected="${cityInfo.location eq weatherData.city or cityInfo.id eq weatherData.city}">
+            </option>
+        </select>
+    </div>
+
+    <div class="row">
+        <h1 class="text-success" th:text="${weatherData.current.city.location}">城市名称</h1>
+    </div>
+
+    <div class="row">
+        <p><b>实况天气</b></p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;更新时间：<span th:text="${weatherData.current.updateTime}">--</span>
+        </p>
+    </div>
+    <div class="row">
+        <div class="card border-info">
+            <div class="card-body text-info">
+                <p class="card-text">
+                    气温(℃)：<span th:text="${weatherData.current.forecasts[0].tmp}">--</span>
+                </p>
+                <p class="card-text">
+                    体感温度(℃)：<span th:text="${weatherData.current.forecasts[0].fl}">--</span>
+                </p>
+                <p class="card-text">
+                    能见度(公里)：<span th:text="${weatherData.current.forecasts[0].vis}">--</span>
+                </p>
+                <p class="card-text">
+                    风力：<span th:text="${weatherData.current.forecasts[0].windSc}">--</span>
+                </p>
+                <p class="card-text">
+                    风向：<span th:text="${weatherData.current.forecasts[0].windDir}">--</span>
+                </p>
+                <p class="card-text">
+                    相对湿度：<span th:text="${weatherData.current.forecasts[0].hum}">--</span>
+                </p>
+                <p class="card-text">
+                    大气压强：<span th:text="${weatherData.current.forecasts[0].pres}">--</span>
+                </p>
+                <p class="card-text">
+                    降水量：<span th:text="${weatherData.current.forecasts[0].pcpn}">--</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <p><b>未来天气</b></p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;更新时间：<span th:text="${weatherData.future.updateTime}">--</span>
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="card border-info" th:each="forecast : ${weatherData.future.forecasts}">
+            <div class="card-body text-info">
+                <p class="card-text">
+                    <b><span th:text="${forecast.date}">--</span></b>
+                </p>
+                <p class="card-text">
+                    温度(℃)：<span th:text="${forecast.tmpMin} + ' ~ ' + ${forecast.tmpMax}">--</span>
+                </p>
+                <p class="card-text">
+                    能见度(公里)：<span th:text="${forecast.vis}">--</span>
+                </p>
+                <p class="card-text">
+                    风力：<span th:text="${forecast.windSc}">--</span>
+                </p>
+                <p class="card-text">
+                    风向：<span th:text="${forecast.windDir}">--</span>
+                </p>
+                <p class="card-text">
+                    相对湿度：<span th:text="${forecast.hum}">--</span>
+                </p>
+                <p class="card-text">
+                    大气压强：<span th:text="${forecast.pres}">--</span>
+                </p>
+                <p class="card-text">
+                    降水量：<span th:text="${forecast.pcpn}">--</span>
+                </p>
+                <p class="card-text">
+                    紫外线强度指数：<span th:text="${forecast.uvIndex}">--</span>
+                </p>
+                <p class="card-text">
+                    日出时间：<span th:text="${forecast.sr}">--</span>
+                </p>
+                <p class="card-text">
+                    日落时间：<span th:text="${forecast.ss}">--</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script th:src="@{/js/weather.js}" type="text/javascript"></script>
+</body>
+</html>

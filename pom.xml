@@ -15,6 +15,7 @@
 		<module>weather-data-collection</module>
 		<module>weather-data-api</module>
 		<module>weather-report-server</module>
+		<module>weather-report-server-gateway</module>
 	</modules>
 	<packaging>pom</packaging>
   <name>weather</name>
