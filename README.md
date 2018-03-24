@@ -7,8 +7,8 @@
 
 2. **主要技术**
   - [SpringBoot 2.0 RELEASE](https://projects.spring.io/spring-boot/)
-  - [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)
-  - [Redis(Lettuce)](https://redis.io/)
+  - [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)：eureka、Feign、zuul、config
+  - [Redis(Lettuce)](https://redis.io/)
   - [quartz](http://www.quartz-scheduler.org/)
   - ...... 
 
@@ -23,6 +23,8 @@
   - weather-eureka-client 普通eureka客户端
   - weather-eureka-client-feign 集成feign的eureka客户端
   - weather-eureka-client-zuul 集成zuul、feign的eureka客户端
+  - weather-config-server 集成config server
+  - weather-config-client 集成config client
 
 4. **所用接口**
   - 天气接口：[和风天气](https://www.heweather.com/documents/api/s6)
