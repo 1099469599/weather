@@ -6,12 +6,11 @@
 跟老师的代码不完全一样，差别还是挺多的。
 
 2. **主要技术**
-
-  * [SpringBoot 2.0 RELEASE](https://projects.spring.io/spring-boot/)
-  * [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)
-  * [Redis(Lettuce)](https://redis.io/)
-  * [quartz](http://www.quartz-scheduler.org/)
-  * ...... 
+  - [SpringBoot 2.0 RELEASE](https://projects.spring.io/spring-boot/)
+  - [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)
+  - [Redis(Lettuce)](https://redis.io/)
+  - [quartz](http://www.quartz-scheduler.org/)
+  - ...... 
 
 3. **子项目说明**
 
