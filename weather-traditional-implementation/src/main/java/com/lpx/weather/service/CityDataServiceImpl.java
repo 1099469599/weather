@@ -4,6 +4,7 @@ import com.lpx.weather.model.City;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class CityDataServiceImpl implements ICityDataService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Value("${city.data.location}")
+    private String filePath;
+
     @Override
     public List<City> getCityList() {
         // 查询缓存中是否有城市信息
@@ -39,9 +43,9 @@ public class CityDataServiceImpl implements ICityDataService {
         Object dataInCache = valueOperations.get(CITY_DATA_KEY);
         if (dataInCache == null) {
             // 解析文件，并将城市信息放入redis
-            String fileName = CityDataServiceImpl.class.getClassLoader().getResource("china-city-list.txt").getPath();
-            LOGGER.info("############## 文件路径为 " + fileName);
-            cityList = readFileByLines(fileName);
+//            String filePath = CityDataServiceImpl.class.getClassLoader().getResource("china-city-list.txt").getPath();
+            LOGGER.info("############## 文件路径为 " + filePath);
+            cityList = readFileByLines(filePath);
             if (!CollectionUtils.isEmpty(cityList)) {
                 valueOperations.set(CITY_DATA_KEY, cityList);
 
