@@ -6,25 +6,25 @@
 跟老师的代码不完全一样，差别还是挺多的。
 
 2. **主要技术**
-  - [SpringBoot 2.0 RELEASE](https://projects.spring.io/spring-boot/)  
-  - [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)：eureka、Feign、zuul、config  
-  - [Redis(Lettuce)](https://redis.io/)  
-  - [quartz](http://www.quartz-scheduler.org/)  
+  - [SpringBoot 2.0 RELEASE](https://projects.spring.io/spring-boot/)
+  - [SpringCloud Finchley.M8](http://projects.spring.io/spring-cloud/)：eureka、Feign、zuul、config
+  - [Redis(Lettuce)](https://redis.io/)
+  - [quartz](http://www.quartz-scheduler.org/)
   - ...... 
 
 3. **子项目说明**
-  - weather-traditional-implementation 传统实现方式  
-  - city-data-api 城市数据查询模块  
-  - weather-data-collection 天气数据采集模块，调用city-data-api  
-  - weather-data-api 天气数据查询模块  
-  - weather-report-server 天气预报模块，直接调用city-data-api和weather-data-api  
-  - weather-report-server-gateway 天气预报模块，通过zuul调用city-data-api和weather-data-api  
-  - weather-eureka-server 注册中心  
-  - weather-eureka-client 普通eureka客户端  
-  - weather-eureka-client-feign 集成feign的eureka客户端  
-  - weather-eureka-client-zuul 集成zuul、feign的eureka客户端  
-  - weather-config-server 集成config server  
-  - weather-config-client 集成config client  
+  - weather-traditional-implementation 传统实现方式
+  - city-data-api 城市数据查询模块
+  - weather-data-collection 天气数据采集模块，调用city-data-api
+  - weather-data-api 天气数据查询模块
+  - weather-report-server 天气预报模块，直接调用city-data-api和weather-data-api
+  - weather-report-server-gateway 天气预报模块，通过zuul调用city-data-api和weather-data-api
+  - weather-eureka-server 注册中心
+  - weather-eureka-client 普通eureka客户端
+  - weather-eureka-client-feign 集成feign的eureka客户端
+  - weather-eureka-client-zuul 集成zuul、feign的eureka客户端
+  - weather-config-server 集成config server
+  - weather-config-client 集成config client
   
 4. **所用接口**
   - 天气接口：[和风天气](https://www.heweather.com/documents/api/s6)
