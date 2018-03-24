@@ -11,7 +11,8 @@
 		<module>weather-eureka-client</module>
 		<module>weather-eureka-client-feign</module>
 		<module>weather-eureka-client-zuul</module>
-		<module>weather-eureka-config-server</module>
+		<module>weather-config-server</module>
+		<module>weather-config-client</module>
 		<module>city-data-api</module>
 		<module>weather-data-collection</module>
 		<module>weather-data-api</module>

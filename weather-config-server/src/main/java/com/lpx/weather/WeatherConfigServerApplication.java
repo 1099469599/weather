@@ -8,9 +8,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableConfigServer
-public class WeatherEurekaClientApplication {
+public class WeatherConfigServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WeatherEurekaClientApplication.class, args);
+		SpringApplication.run(WeatherConfigServerApplication.class, args);
 	}
 }
