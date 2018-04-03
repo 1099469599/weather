@@ -18,6 +18,7 @@
 		<module>weather-data-api</module>
 		<module>weather-report-server</module>
 		<module>weather-report-server-gateway</module>
+		<module>weather-hystrix-turbine-dashboard</module>
 	</modules>
 	<packaging>pom</packaging>
   <name>weather</name>
